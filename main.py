@@ -1,16 +1,17 @@
-import Temperatures
+import libreHardware_windows
 import time
 
 def main():
-    monitor = Temperatures.Monitor()
+    monitor = libreHardware_windows.Monitor()
 
     monitor.initHardwareMonitor()
-    
-    for _ in range(60):
-        monitor.readTemps()
-        time.sleep(1)
 
-    monitor.createDF()
+    for i in range(2):    
+        for _ in range(600):
+            monitor.readTemps()
+            time.sleep(10)
+
+        monitor.createCSV()
     
     monitor.closeHardwareMonitor()
    
