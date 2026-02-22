@@ -1,17 +1,17 @@
-import libreHardware_windows
+import libre_windows_monitor
 import time
 
 def main():
-    monitor = libreHardware_windows.Monitor()
+    monitor = libre_windows_monitor.Monitor()
 
     monitor.initHardwareMonitor()
+    monitor.initialize_openhardwaremonitor()
 
-    for i in range(2):    
-        for _ in range(600):
-            monitor.readTemps()
-            time.sleep(10)
+    for _ in range(300):
+        monitor.readTemps()
+        time.sleep(1)
 
-        monitor.createCSV()
+    monitor.createCSV()
     
     monitor.closeHardwareMonitor()
    
