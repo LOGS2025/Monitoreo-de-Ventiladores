@@ -24,7 +24,6 @@ class UpdateVisitor(IVisitor):
 
 class Monitor:
     fan_state : bool
-    df = pd.DataFrame()
     rows = []
 
     def initHardwareMonitor(self):
@@ -77,9 +76,12 @@ class Monitor:
 
         self.rows.append(row)
         
-    def createDF(self):
-        self.df = pd.DataFrame(self.rows)
-        self.df.to_csv("thermal_log.csv", index=False)
+    def createCSV(self, round):
+        # Create a new data frame each time
+        df = pd.DataFrame(self.rows)
+        df.to_csv(f"thermal_log{round}.csv", index=False)
+        # Reset data on rows
+        self.rows = ''
 
     def closeHardwareMonitor(self):
         self.computer.Close()
