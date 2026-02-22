@@ -19,7 +19,7 @@ def main():
         for _ in range(60):
             monitor.readTemps()
             time.sleep(1)
-        subprocess.run([bat, "Ronda {i} completada!!!"])
+        subprocess.run([bat, f"Ronda {i} completada!!!"])
         monitor.createDF(1000)
     subprocess.run([bat, "DF Creado"])
 
