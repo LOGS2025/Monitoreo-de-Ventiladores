@@ -1,8 +1,8 @@
-import Temperatures
+import libreHardware_windows
 import time
 
 def main():
-    monitor = Temperatures.Monitor()
+    monitor = libreHardware_windows.Monitor()
 
     monitor.initHardwareMonitor()
 
