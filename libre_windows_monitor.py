@@ -11,6 +11,17 @@ import os
 import clr
 from datetime import datetime
 
+# Source - https://github.com/snip3rnick/PyHardwareMonitor
+# Retrieved 2026-02-22
+# Python Harware Monitor is a thin package layer for LibreHardwareMonitorLib using pythonnet. Libre Hardware Monitor, 
+# a fork of Open Hardware Monitor, is free software that can monitor the temperature sensors, fan speeds, voltages, 
+# load and clock speeds of your computer. This package is mostly auto generated using the pythonstubs generator tool for .NET libraries. 
+
+# Source - https://openhardwaremonitor.org/downloads/
+# Retrieved 2026-02-22
+# The free Open Hardware Monitor software runs on Microsoft Windows with the .NET Framework version 4.5 and above. 
+# On Linux systems the Open Hardware Monitor requires Mono with WinForms.
+
 
 dll_path = R"C:\Users\lopez\OneDrive\Desktop\Arduino\ventiladorespyino\OpenHardwareMonitorLib.dll"
 clr.AddReference(dll_path)
@@ -42,9 +53,7 @@ class Monitor:
     fan_state : bool
     df = pd.DataFrame()
     rows = []
-
     OpenHardwareHandle = ''
-
 
     def initHardwareMonitor(self):
         self.computer = Computer()  # settings can not be passed as constructor argument (following below)
@@ -57,7 +66,6 @@ class Monitor:
         self.computer.IsMemoryEnabled = True
         self.computer.IsNetworkEnabled = True
         self.computer.IsStorageEnabled = True
-        self.fan_state = True
 
         self.computer.Open()
 
