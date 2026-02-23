@@ -23,7 +23,7 @@ from datetime import datetime
 # On Linux systems the Open Hardware Monitor requires Mono with WinForms.
 
 
-dll_path = R"C:\Users\lopez\OneDrive\Desktop\Arduino\ventiladorespyino\OpenHardwareMonitorLib.dll"
+dll_path = R"C:\Users\lopez\OneDrive\Desktop\Arduino\ventiladorespyino\lib\OpenHardwareMonitorLib.dll"
 clr.AddReference(dll_path)
 
 from OpenHardwareMonitor import Hardware

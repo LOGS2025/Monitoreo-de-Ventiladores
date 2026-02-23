@@ -1,4 +1,5 @@
 import libre_windows_monitor
+import Arduino
 import time
 import os
 import subprocess
@@ -10,10 +11,11 @@ def main():
     subprocess.run([bat, "Iniciando Programa"])
     print("Initializing")
     monitor = libre_windows_monitor.Monitor()
-
+    switch = Arduino.ArduinoPort()
 
     monitor.initHardwareMonitor(fans)
     monitor.initialize_openhardwaremonitor()
+
     subprocess.run([bat, f"Inicialización exitosa con ventiladores en {fans}"])
 
     for i in range(10):
@@ -26,6 +28,7 @@ def main():
         subprocess.run([bat, "DF Creado"])
 
         monitor.closeHardwareMonitor()
+        switch.closePort()
         subprocess.run([bat, "Programa finalizado"])
   
 
